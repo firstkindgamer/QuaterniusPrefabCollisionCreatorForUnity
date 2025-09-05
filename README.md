@@ -17,11 +17,14 @@ Download the Unitypackage file and import,
 drag and drop the script anywhere inside your asset folder
 
 
-#Notice 
+# Notice 
 
 The collision folder must be in the same folder as the model source fbx files
 
 Some of quaternious's Models do not have collisions, or are seperated parts of the other models. This will still create a prefab, but wont apply a collider. 
+
+the collisions are by name only, using Collision_ as the start for each of the colliders. if the naming scheme is the same, it will work for other packs.
+if it isnt the same, you just need to change the (collision+(model) name part of the collisionpath to reflect the new naming scheme.
 
 
 # Currently supported Packs
