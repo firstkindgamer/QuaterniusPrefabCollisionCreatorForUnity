@@ -17,6 +17,13 @@ Download the Unitypackage file and import,
 drag and drop the script anywhere inside your asset folder
 
 
+#Notice 
+
+The collision folder must be in the same folder as the model source fbx files
+
+Some of quaternious's Models do not have collisions, or are seperated parts of the other models. This will still create a prefab, but wont apply a collider. 
+
+
 # Currently supported Packs
 
 [https://quaternius.com/packs/medievalvillagemegakit.html](Medieval Village Megakit)
