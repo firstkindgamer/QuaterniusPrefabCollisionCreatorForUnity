@@ -40,12 +40,15 @@ class ApplyCollisionPrefabs
             {
                 GameObject modelInstance = Object.Instantiate(model);
                 modelInstance.name = model.name;
-
+                string prefabPath = Path.Join("Assets", "Prefabs", model.name + "_WithCollisions.prefab");
                 string collisionpath = Path.Join(Path.GetDirectoryName(modelPath), "Collisions", "Collision_" + modelPath.Split(Path.AltDirectorySeparatorChar).Last());
                 GameObject collisionPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(collisionpath);
                 if (collisionPrefab == null)
                 {
-                    Debug.LogWarning("No collision prefab found for model: " + model.name + " at path: " + collisionpath);
+                    Debug.LogWarning("No collision prefab found for model: " + model.name + " at path: " + collisionpath + "\n"
+                    + "Creating prefab without collisions.");
+                    PrefabUtility.SaveAsPrefabAsset(modelInstance, prefabPath);
+                    GameObject.DestroyImmediate(modelInstance);
                     continue;
                 }
                 GameObject collisionInstance = Object.Instantiate(collisionPrefab);
@@ -55,7 +58,7 @@ class ApplyCollisionPrefabs
                 ApplyCollisionPrefabsToModel(modelInstance, collisionInstance);
 
                 // Save the modified model instance as a new prefab
-                string prefabPath = Path.Join("Assets", "Prefabs", model.name + "_WithCollisions.prefab");
+                
                 PrefabUtility.SaveAsPrefabAsset(modelInstance, prefabPath);
 
                 // Clean up the instantiated model instance
