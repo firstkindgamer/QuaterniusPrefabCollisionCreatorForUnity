@@ -10,11 +10,11 @@ this is non-destructive, and only creates new prefabs at (OS Independant) "Asset
 
 # Install guide
 
-2 Ways
+2 Seperate Ways
 
-Download the Unitypackage file and import,
+1. Download the Unitypackage file and import
 
-drag and drop the script anywhere inside your asset folder
+2. Drag and drop the script anywhere inside your asset folder
 
 
 # Notice 
