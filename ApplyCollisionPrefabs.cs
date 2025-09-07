@@ -15,7 +15,7 @@ class ApplyCollisionPrefabs
 
     public void ApplyCollisionPrefabsToModel(GameObject modelInstance, GameObject collisionInstance)
     {
-        MeshRenderer[] meshRenderers = modelInstance.GetComponentsInChildren<MeshRenderer>();
+        MeshRenderer[] meshRenderers = collisionInstance.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer renderer in meshRenderers)
         {
 
