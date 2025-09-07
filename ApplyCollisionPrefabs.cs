@@ -15,8 +15,20 @@ class ApplyCollisionPrefabs
 
     public void ApplyCollisionPrefabsToModel(GameObject modelInstance, GameObject collisionInstance)
     {
-        collisionInstance.AddComponent<MeshCollider>();
-        collisionInstance.GetComponent<MeshRenderer>().enabled = false;
+        MeshRenderer[] meshRenderers = modelInstance.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in meshRenderers)
+        {
+
+            if (renderer.gameObject.GetComponent<Collider>() != null)
+            {
+                renderer.enabled = false;
+                continue;
+
+            }
+            renderer.gameObject.AddComponent<MeshCollider>();
+            renderer.enabled = false;
+        }
+        
 
         collisionInstance.transform.parent = modelInstance.transform;
         collisionInstance.transform.localPosition = Vector3.zero;
